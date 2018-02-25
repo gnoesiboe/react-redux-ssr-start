@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Base from '../server/components/base';
+import Base from '../shared/components/base';
 import { BrowserRouter } from 'react-router-dom';
 import routes from '../shared/router/routes';
 import { renderRoutes } from 'react-router-config';

@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { renderRoutes } from 'react-router-config';
 import { Link } from 'react-router-dom';
-import { createPostsPath, createHomePath } from '../../../shared/router/urlGenerator';
+import { createPostsPath, createHomePath } from '../../router/urlGenerator';
 
 type Props = {
     route: {
