@@ -2,11 +2,20 @@
 
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import HelloWorld from '../components/HelloWorld';
+import { StaticRouter } from 'react-router-dom';
+import HelloWorld from '../components/base';
+import { renderRoutes } from 'react-router-config';
+import routes from '../../shared/router/routes';
 
-export function createGetResponse(): string {
+export function createGetResponse(path: string): string {
+
+    // @todo use router context to determine if a not found or redirect response is to be returned
+    var routerContext = {};
+
     var content: string = renderToString(
-        <HelloWorld/>
+        <StaticRouter location={ path } context={ routerContext }>
+            { renderRoutes(routes) }
+        </StaticRouter>
     );
 
     return `

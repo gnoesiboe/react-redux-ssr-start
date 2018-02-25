@@ -9,7 +9,7 @@ var app = express();
 app.use(express.static('public'));
 
 app.get('*', (request: Object, response: Object) => {
-    var content = createGetResponse();
+    var content = createGetResponse(request.path);
 
     response.send(content);
 });
