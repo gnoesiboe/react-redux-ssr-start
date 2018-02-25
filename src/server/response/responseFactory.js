@@ -6,16 +6,20 @@ import { StaticRouter } from 'react-router-dom';
 import HelloWorld from '../../shared/components/base';
 import { renderRoutes } from 'react-router-config';
 import routes from '../../shared/router/routes';
+import { Store } from 'redux';
+import { Provider } from 'react-redux';
 
-export function createGetResponse(path: string): string {
+export function createGetResponse(path: string, store: Store): string {
 
     // @todo use router context to determine if a not found or redirect response is to be returned
     var routerContext = {};
 
     var content: string = renderToString(
-        <StaticRouter location={ path } context={ routerContext }>
-            { renderRoutes(routes) }
-        </StaticRouter>
+        <Provider store={ store }>
+            <StaticRouter location={ path } context={ routerContext }>
+                { renderRoutes(routes) }
+            </StaticRouter>
+        </Provider>
     );
 
     return `
