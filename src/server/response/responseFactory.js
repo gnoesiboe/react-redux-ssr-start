@@ -1,6 +1,14 @@
 // @flow
 
-export function createGetResponse(content: string): string {
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import HelloWorld from '../components/HelloWorld';
+
+export function createGetResponse(): string {
+    var content: string = renderToString(
+        <HelloWorld/>
+    );
+
     return `
 <html>
     <head>

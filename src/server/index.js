@@ -9,7 +9,7 @@ var app = express();
 app.use(express.static('public'));
 
 app.get('*', (request: Object, response: Object) => {
-    var content = createGetResponse('@todo');
+    var content = createGetResponse();
 
     response.send(content);
 });
