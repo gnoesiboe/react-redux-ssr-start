@@ -7,8 +7,11 @@ import type { Store } from 'redux';
 
 export function createStore() : Store {
     var middlewareChain: Function = createMiddlewareChain(),
-        reducers: Function = createReducersChain(),
-        initialState: Object = {};
+        reducers: Function = createReducersChain();
 
-    return createReduxStore(reducers, initialState, middlewareChain);
+    return createReduxStore(
+        reducers,
+        window.INITIAL_STORE_STATE, // import Redux store data from backend
+        middlewareChain
+    );
 }
