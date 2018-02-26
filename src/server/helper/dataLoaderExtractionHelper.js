@@ -2,14 +2,14 @@
 
 import { matchRoutes } from 'react-router-config';
 import routes from '../../shared/router/routes';
-import { Store } from 'redux';
+import type { Store } from 'redux';
 import type { Route } from '../../shared/router/type';
 
 type MatchedRoute = {
     route: Route
 }
 
-export function extractAllDataLoaderPromisesForCurrentRoute(path: String, store: Store) {
+export function extractAllDataLoaderPromisesForCurrentRoute(path: String, store: Store<Function, Object>) {
     var matchedRoutes: Array<MatchedRoute> = matchRoutes(routes, path),
         promises = [];
 

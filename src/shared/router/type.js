@@ -7,5 +7,5 @@ export type Route = {
     path: string,
     component: Node,
     exact?: boolean,
-    loadData?: (store: Store) => Promise<any>
+    loadData?: (store: Store<Function, Object>) => Promise<any>
 }

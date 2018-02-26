@@ -5,7 +5,7 @@ import { createReducersChain } from '../../shared/redux/reducers';
 import { createStore as createReduxStore } from 'redux';
 import type { Store } from 'redux';
 
-export function createStore() : Store {
+export function createStore() : Store<Function, Object> {
     var middlewareChain: Function = createMiddlewareChain(),
         reducers: Function = createReducersChain();
 

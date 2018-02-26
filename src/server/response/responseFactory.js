@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 import { Helmet } from 'react-helmet';
 
-export function createGetResponse(path: string, store: Store): string {
+export function createGetResponse(path: string, store: Store<Function, Object>): string {
 
     // @todo use router context to determine if a not found or redirect response is to be returned
     var routerContext = {};

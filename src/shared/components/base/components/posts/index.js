@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet';
 
 type Props = {
     posts: PostCollection,
-    dispatch: Dispatch
+    dispatch: Dispatch<Function>
 };
 
 type ConnectedProps = {
@@ -52,7 +52,7 @@ class Posts extends React.Component<Props> {
     }
 }
 
-export function loadData(store: Store): void {
+export function loadData(store: Store<Function, Object>): any {
     return store.dispatch(
         createFetchPostsAction()
     );

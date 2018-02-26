@@ -1,5 +1,7 @@
 [ignore]
-*.json
+.*/build/.*
+.*/public/.*
+.*/node_modules/webpack-cli/.nyc_output/*.*
 
 [include]
 
