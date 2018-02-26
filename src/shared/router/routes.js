@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Base from '../components/base';
-import Posts from '../components/base/components/posts/index';
+import Posts, { loadData as loadPostsData } from '../components/base/components/posts/index';
 import { createPostsPath } from './urlGenerator';
 
 export default [
@@ -12,7 +12,8 @@ export default [
             {
                 path: createPostsPath(),
                 component: Posts,
-                exact: true
+                exact: true,
+                loadData: loadPostsData
             }
         ]
     }

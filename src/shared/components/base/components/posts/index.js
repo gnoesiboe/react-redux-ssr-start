@@ -6,7 +6,7 @@ import type { PostCollection } from '../../../../model/type';
 import type { GlobalState } from '../../../../redux/state/type';
 import { createFetchPostsAction } from '../../../../redux/action/factory/postActionFactory';
 import type { Post } from '../../../../model/type';
-import type { Dispatch } from 'react-redux';
+import type { Store, Dispatch } from 'redux';
 
 type Props = {
     posts: PostCollection,
@@ -46,6 +46,12 @@ class Posts extends React.Component<Props> {
             </div>
         );
     }
+}
+
+export function loadData(store: Store): void {
+    return store.dispatch(
+        createFetchPostsAction()
+    );
 }
 
 function _mapGlobalStateToProps(globalState: GlobalState): ConnectedProps {
