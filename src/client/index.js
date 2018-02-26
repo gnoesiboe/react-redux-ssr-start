@@ -9,6 +9,7 @@ import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
 import { createStore } from './redux/storeFactory';
 
+// $ExpectError (@see https://github.com/facebook/flow/pull/5074)
 ReactDOM.hydrate(
     <Provider store={ createStore() }>
         <BrowserRouter>

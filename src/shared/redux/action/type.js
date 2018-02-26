@@ -9,7 +9,7 @@ export type Action = $ReadOnly<{
     type: string,
     payload: {
         data: { [key: string]: any },
-        promise: ?Promise<any>
+        promise?: ?Promise<any>
     },
     meta: { [key: string]: any }
 }>;
