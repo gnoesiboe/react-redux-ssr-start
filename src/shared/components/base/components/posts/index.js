@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import React from 'react';
 import type { PostCollection } from '../../../../model/type';
 import type { GlobalState } from '../../../../redux/state/type';
+import { createFetchPostsAction } from '../../../../redux/action/factory/postActionFactory';
+import type { Post } from '../../../../model/type';
 
 type Props = {
     posts: PostCollection,
@@ -16,11 +18,31 @@ type ConnectedProps = {
 
 class Posts extends React.Component<Props> {
 
+    componentDidMount(): void {
+        var { dispatch } = this.props;
+
+        dispatch(
+            createFetchPostsAction()
+        );
+    }
+
+    _renderPost(post: Post) {
+        return (
+            <li key={ post.id }>
+                { post.title }
+            </li>
+        );
+    }
+
     render() {
-        console.log(this.props.posts);
+        var { posts } = this.props;
 
         return (
-            <div>@todo posts</div>
+            <div className="posts">
+                <ul>
+                    { posts.map((post: Post) => this._renderPost(post)) }
+                </ul>
+            </div>
         );
     }
 }
