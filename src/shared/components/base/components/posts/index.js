@@ -7,6 +7,7 @@ import type { GlobalState } from '../../../../redux/state/type';
 import { createFetchPostsAction } from '../../../../redux/action/factory/postActionFactory';
 import type { Post } from '../../../../model/type';
 import type { Store, Dispatch } from 'redux';
+import { Helmet } from 'react-helmet';
 
 type Props = {
     posts: PostCollection,
@@ -40,6 +41,9 @@ class Posts extends React.Component<Props> {
 
         return (
             <div className="posts">
+                <Helmet>
+                    <title>Posts | React Redux SSR start</title>
+                </Helmet>
                 <ul>
                     { posts.map((post: Post) => this._renderPost(post)) }
                 </ul>

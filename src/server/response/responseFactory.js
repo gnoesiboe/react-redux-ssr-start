@@ -8,6 +8,7 @@ import routes from '../../shared/router/routes';
 import type { Store } from 'redux';
 import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
+import { Helmet } from 'react-helmet';
 
 export function createGetResponse(path: string, store: Store): string {
 
@@ -25,10 +26,16 @@ export function createGetResponse(path: string, store: Store): string {
         </Provider>
     );
 
+    // get SEO / sharing meta properties
+    var metaProperties = Helmet.renderStatic();
+
     return `
 <html>
     <head>
-        <title>React-Redux-SSR-start</title>
+        <head>
+            ${ metaProperties.title.toString() }
+            ${ metaProperties.meta.toString() }
+        </head>
     </head>
     <body>
         <div id="js-app-root">${ content }</div>

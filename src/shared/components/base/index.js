@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { renderRoutes } from 'react-router-config';
 import { Link } from 'react-router-dom';
 import { createPostsPath, createHomePath } from '../../router/urlGenerator';
+import { Helmet } from 'react-helmet';
 
 type Props = {
     route: {
@@ -16,6 +17,10 @@ export default class Base extends Component<Props> {
     render() {
         return (
             <div>
+                <Helmet>
+                    <title>React Redux SSR start</title>
+                    <meta property="og:title" content="React Redux SSR Start" />
+                </Helmet>
                 <h1>Hello world!</h1>
                 <ul>
                     <li>
