@@ -3,7 +3,6 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
-import HelloWorld from '../../shared/components/base';
 import { renderRoutes } from 'react-router-config';
 import routes from '../../shared/router/routes';
 import { Store } from 'redux';
