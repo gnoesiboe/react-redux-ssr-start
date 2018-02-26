@@ -2,7 +2,7 @@
 
 import type { Action, ActionData, ActionMeta } from '../type';
 
-export function createAction(type: string, promise: ?Promise<any>= null, data: ActionData = {}, meta: ActionMeta = {}): Action {
+export function createAction(type: string, promise: ?Promise<any> = null, data: ActionData = {}, meta: ActionMeta = {}): Action {
     return {
         type,
         payload: {
