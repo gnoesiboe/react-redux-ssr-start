@@ -6,10 +6,11 @@ import type { PostCollection } from '../../../../model/type';
 import type { GlobalState } from '../../../../redux/state/type';
 import { createFetchPostsAction } from '../../../../redux/action/factory/postActionFactory';
 import type { Post } from '../../../../model/type';
+import type { Dispatch } from 'react-redux';
 
 type Props = {
     posts: PostCollection,
-    dispatch: Function
+    dispatch: Dispatch
 };
 
 type ConnectedProps = {
