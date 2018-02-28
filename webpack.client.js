@@ -1,6 +1,7 @@
 var path = require('path');
 var merge = require('webpack-merge');
 var baseConfig = require('./webpack.base');
+var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 var config = {
 
@@ -12,7 +13,13 @@ var config = {
         filename: 'bundle.js',
         chunkFilename: "[name].client.chunk.js",
         path: path.resolve(__dirname, 'public')
-    }
+    },
+
+    devtool: 'source-map',
+
+    plugins: [
+        new LiveReloadPlugin({})
+    ]
 };
 
 module.exports = merge(baseConfig, config);

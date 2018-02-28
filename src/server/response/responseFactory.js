@@ -43,6 +43,7 @@ export function createGetResponse(path: string, store: Store<Function, Object>):
             window.INITIAL_STORE_STATE = ${ serializedStoreState }
         </script>
         <script src="bundle.js"></script>
+        <script src="http://localhost:35729/livereload.js"></script>
     </body>
 </html>
     `;
