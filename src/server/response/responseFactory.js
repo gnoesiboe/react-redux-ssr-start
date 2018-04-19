@@ -10,10 +10,11 @@ import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 import { Helmet } from 'react-helmet';
 
-export function createGetResponse(path: string, store: Store<Function, Object>): string {
+export type RouterContext = {
+    notFound ?: boolean
+};
 
-    // @todo use router context to determine if a not found or redirect response is to be returned
-    var routerContext = {};
+export function createGetResponseBody(path: string, store: Store<Function, Object>, routerContext: Object): string {
 
     // use serialize to escape html and script tags in json (XSS attacks)
     var serializedStoreState : string = serialize(store.getState());
@@ -47,4 +48,12 @@ export function createGetResponse(path: string, store: Store<Function, Object>):
     </body>
 </html>
     `;
+}
+
+export function determineStatusCode(routerContext: RouterContext): number {
+    if (typeof routerContext.notFound !== 'undefined' && routerContext.notFound === true) {
+        return 404;
+    }
+
+    return 200;
 }

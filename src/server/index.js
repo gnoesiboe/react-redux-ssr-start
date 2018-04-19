@@ -2,7 +2,7 @@
 
 import 'babel-polyfill';
 import express from 'express';
-import { createGetResponse } from './response/responseFactory';
+import { createGetResponseBody, determineStatusCode } from './response/responseFactory';
 import { createStore } from './redux/storeFactory';
 import { extractAllDataLoaderPromisesForCurrentRoute } from './helper/dataLoaderExtractionHelper';
 
@@ -15,9 +15,13 @@ app.get('*', (request: Object, response: Object) => {
         allDataLoaderPromises = extractAllDataLoaderPromisesForCurrentRoute(request.path, store);
 
     Promise.all(allDataLoaderPromises).then(() => {
-        response.send(
-            createGetResponse(request.path, store)
-        );
+        var routerContext = {};
+
+        var body = createGetResponseBody(request.path, store, routerContext),
+            statusCode = determineStatusCode(routerContext);
+
+        response.status(statusCode);
+        response.send(body);
     });
 });
 
