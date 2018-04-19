@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Base from '../components/base';
-import Posts, { loadData as loadPostsData } from '../components/base/components/posts/index';
+import Posts, { loadData as loadPostsData } from '../components/base/components/posts';
+import NotFound from '../components/base/components/notFound';
 import { createPostsPath } from './urlGenerator';
 
 export default [
@@ -14,6 +15,9 @@ export default [
                 component: Posts,
                 exact: true,
                 loadData: loadPostsData
+            },
+            {
+                component: NotFound
             }
         ]
     }
