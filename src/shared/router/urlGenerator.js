@@ -10,6 +10,10 @@ export function createPostsPath(): string {
     return '/posts';
 }
 
+export function createRedirectHomePath(): string {
+    return '/redirect-home';
+}
+
 export function createPostsApiPath(): string {
     return API_BASE_URL + '/posts';
 }
