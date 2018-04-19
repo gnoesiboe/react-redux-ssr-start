@@ -11,7 +11,8 @@ import serialize from 'serialize-javascript';
 import { Helmet } from 'react-helmet';
 
 export type RouterContext = {
-    notFound ?: boolean
+    notFound: boolean,
+    redirectTo: ?string
 };
 
 export function createGetResponseBody(path: string, store: Store<Function, Object>, routerContext: Object): string {
@@ -51,8 +52,12 @@ export function createGetResponseBody(path: string, store: Store<Function, Objec
 }
 
 export function determineStatusCode(routerContext: RouterContext): number {
-    if (typeof routerContext.notFound !== 'undefined' && routerContext.notFound === true) {
+    if (routerContext.notFound === true) {
         return 404;
+    }
+
+    if (routerContext.redirectTo) {
+        return 301;
     }
 
     return 200;

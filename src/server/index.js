@@ -5,6 +5,7 @@ import express from 'express';
 import { createGetResponseBody, determineStatusCode } from './response/responseFactory';
 import { createStore } from './redux/storeFactory';
 import { extractAllDataLoaderPromisesForCurrentRoute } from './helper/dataLoaderExtractionHelper';
+import type { RouterContext } from './response/responseFactory';
 
 var app = express();
 
@@ -15,10 +16,19 @@ app.get('*', (request: Object, response: Object) => {
         allDataLoaderPromises = extractAllDataLoaderPromisesForCurrentRoute(request.path, store);
 
     Promise.all(allDataLoaderPromises).then(() => {
-        var routerContext = {};
+        var routerContext: RouterContext = {
+            notFound: false,
+            redirectTo: null
+        };
 
         var body = createGetResponseBody(request.path, store, routerContext),
             statusCode = determineStatusCode(routerContext);
+
+        if (routerContext.redirectTo) {
+            response.redirect(statusCode, routerContext.redirectTo);
+
+            return;
+        }
 
         response.status(statusCode);
         response.send(body);
