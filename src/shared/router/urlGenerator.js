@@ -14,6 +14,10 @@ export function createRedirectHomePath(): string {
     return '/redirect-home';
 }
 
+export function createContactPath(): string {
+    return '/contact';
+}
+
 export function createPostsApiPath(): string {
     return API_BASE_URL + '/posts';
 }

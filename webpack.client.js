@@ -11,7 +11,7 @@ var config = {
     // Tell webpack where to put the output file that is generated
     output: {
         filename: 'bundle.js',
-        chunkFilename: "[name].client.chunk.js",
+        chunkFilename: "[name].chunk.js",
         path: path.resolve(__dirname, 'public')
     },
 

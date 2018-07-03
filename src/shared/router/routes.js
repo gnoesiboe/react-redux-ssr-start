@@ -5,7 +5,15 @@ import Base from '../components/base';
 import Posts, { loadData as loadPostsData } from '../components/base/components/posts';
 import NotFound from '../components/base/components/notFound';
 import RedirectHome from '../components/base/components/redirectHome/index';
-import { createPostsPath, createRedirectHomePath } from './urlGenerator';
+import { createPostsPath, createRedirectHomePath, createContactPath } from './urlGenerator';
+import Loadable from 'react-loadable';
+import Loading from '../components/base/components/loading';
+
+var LazyLoadingContact = Loadable({
+    loader: () => import(/* webpackChunkName: "contact" */ '../components/base/components/contact'),
+    loading: Loading
+})
+
 
 export default [
     {
@@ -21,6 +29,12 @@ export default [
                 path: createRedirectHomePath(),
                 component: RedirectHome
             },
+            {
+                path: createContactPath(),
+                component: LazyLoadingContact
+            },
+
+            // should be at the bottom, to catch every request that does not match one of the paths above
             {
                 component: NotFound
             }

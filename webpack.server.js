@@ -2,6 +2,7 @@ var path = require('path');
 var merge = require('webpack-merge');
 var baseConfig = require('./webpack.base');
 var webpackNodeExternals = require('webpack-node-externals');
+var ReactLoadablePlugin = require('react-loadable/webpack').ReactLoadablePlugin;
 
 var config = {
 
@@ -14,12 +15,18 @@ var config = {
     // Tell webpack where to put the output file that is generated
     output: {
         filename: 'bundle.js',
-        chunkFilename: "[name].server.chunk.js",
+        chunkFilename: "[name].chunk.js",
         path: path.resolve(__dirname, 'build')
     },
 
     externals: [
         webpackNodeExternals()
+    ],
+
+    plugins: [
+        new ReactLoadablePlugin({
+            filename: './data/module-name-to-webpack-chunk-mapping.json',
+        })
     ]
 };
 
