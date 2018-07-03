@@ -21,7 +21,7 @@ export type RouterContext = {
 export function createGetResponseBody(path: string, store: Store<Function, Object>, routerContext: Object): string {
 
     // use serialize to escape html and script tags in json (XSS attacks)
-    var serializedStoreState : string = serialize(store.getState());
+    var serializedStoreState: string = serialize(store.getState());
 
     // after rendering to string, this array will hold all module names of all the lazy loaded modules that were
     // rendered for this request. We can use this later on to determine the webpack chunks they belong to, so we
@@ -42,8 +42,9 @@ export function createGetResponseBody(path: string, store: Store<Function, Objec
 
     var webpackChunksToLazyLoad: Array<Object> = getBundles(moduleNameToWebpackChunkMapping, detectedLazyLoadingModules),
         lazyLoadedComponentsToLoad = webpackChunksToLazyLoad.map((webpackChunk: { file: string }) => `<script src="/${webpackChunk.file}"></script>`);
+
     // get SEO / sharing meta properties
-    var metaProperties = Helmet.renderStatic();
+    var metaProperties: { title: Object, meta: Object } = Helmet.renderStatic();
 
     return `
 <html>
