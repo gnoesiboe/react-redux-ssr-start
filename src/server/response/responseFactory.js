@@ -61,7 +61,6 @@ export function createGetResponseBody(path: string, store: Store<Function, Objec
         </script>
         ${ lazyLoadedComponentsToLoad.join('\n') }
         <script src="bundle.js"></script>
-        <script src="http://localhost:35729/livereload.js"></script>
     </body>
 </html>
     `;

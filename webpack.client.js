@@ -1,7 +1,6 @@
 var path = require('path');
 var merge = require('webpack-merge');
 var baseConfig = require('./webpack.base');
-var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 var config = {
 
@@ -15,11 +14,7 @@ var config = {
         path: path.resolve(__dirname, 'public')
     },
 
-    devtool: 'source-map',
-
-    plugins: [
-        new LiveReloadPlugin({})
-    ]
+    devtool: 'source-map'
 };
 
 module.exports = merge(baseConfig, config);
