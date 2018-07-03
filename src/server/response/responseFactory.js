@@ -9,6 +9,9 @@ import type { Store } from 'redux';
 import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 import { Helmet } from 'react-helmet';
+import Loadable from 'react-loadable';
+import { getBundles } from 'react-loadable/webpack';
+import moduleNameToWebpackChunkMapping from './../../../data/module-name-to-webpack-chunk-mapping.json';
 
 export type RouterContext = {
     notFound: boolean,
@@ -20,14 +23,25 @@ export function createGetResponseBody(path: string, store: Store<Function, Objec
     // use serialize to escape html and script tags in json (XSS attacks)
     var serializedStoreState : string = serialize(store.getState());
 
+    // after rendering to string, this array will hold all module names of all the lazy loaded modules that were
+    // rendered for this request. We can use this later on to determine the webpack chunks they belong to, so we
+    // can supply this information to the client-side, so that it is not upset about the fact that the lazy loaded
+    // content is already there..
+    // @see https://github.com/jamiebuilds/react-loadable#------------server-side-rendering
+    var detectedLazyLoadingModules: Array<string> = [];
+
     var content: string = renderToString(
-        <Provider store={ store }>
-            <StaticRouter location={ path } context={ routerContext }>
-                { renderRoutes(routes) }
-            </StaticRouter>
-        </Provider>
+        <Loadable.Capture report={ (moduleName: string) => detectedLazyLoadingModules.push(moduleName) }>
+            <Provider store={ store }>
+                <StaticRouter location={ path } context={ routerContext }>
+                    { renderRoutes(routes) }
+                </StaticRouter>
+            </Provider>
+        </Loadable.Capture>
     );
 
+    var webpackChunksToLazyLoad: Array<Object> = getBundles(moduleNameToWebpackChunkMapping, detectedLazyLoadingModules),
+        lazyLoadedComponentsToLoad = webpackChunksToLazyLoad.map((webpackChunk: { file: string }) => `<script src="/${webpackChunk.file}"></script>`);
     // get SEO / sharing meta properties
     var metaProperties = Helmet.renderStatic();
 
@@ -44,6 +58,7 @@ export function createGetResponseBody(path: string, store: Store<Function, Objec
         <script type="text/javascript">
             window.INITIAL_STORE_STATE = ${ serializedStoreState }
         </script>
+        ${ lazyLoadedComponentsToLoad.join('\n') }
         <script src="bundle.js"></script>
         <script src="http://localhost:35729/livereload.js"></script>
     </body>

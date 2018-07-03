@@ -6,6 +6,7 @@ import { createGetResponseBody, determineStatusCode } from './response/responseF
 import { createStore } from './redux/storeFactory';
 import { extractAllDataLoaderPromisesForCurrentRoute } from './helper/dataLoaderExtractionHelper';
 import type { RouterContext } from './response/responseFactory';
+import Loadable from 'react-loadable';
 
 var app = express();
 
@@ -35,8 +36,11 @@ app.get('*', (request: Object, response: Object) => {
     });
 });
 
-app.listen(3000, () => {
+// first preload all lazy loading components to have them available before we start serving HTML.
+Loadable.preloadAll().then(() => {
+    app.listen(3000, () => {
 
-    // $ExpectError
-    console.log(`[${process.env.NODE_ENV}] listening on port 3000..`);
+        // $ExpectError
+        console.log(`[${process.env.NODE_ENV}] listening on port 3000..`);
+    });
 });

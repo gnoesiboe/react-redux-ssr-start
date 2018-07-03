@@ -12,7 +12,8 @@ module.exports = {
                 loader: 'babel-loader',
                 options: {
                     plugins: [
-                        'syntax-dynamic-import'
+                        'syntax-dynamic-import',
+                        'react-loadable/babel'
                     ],
                     presets: [
                         'react',

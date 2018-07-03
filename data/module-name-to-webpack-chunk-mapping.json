@@ -1,0 +1,274 @@
+{
+  "../components/base/components/contact": [
+    {
+      "id": "./src/shared/components/base/components/contact/index.js",
+      "name": "./src/shared/components/base/components/contact/index.js",
+      "file": "contact.chunk.js",
+      "publicPath": "contact.chunk.js"
+    }
+  ],
+  "./../../../data/module-name-to-webpack-chunk-mapping.json": [
+    {
+      "id": "./data/module-name-to-webpack-chunk-mapping.json",
+      "name": "./data/module-name-to-webpack-chunk-mapping.json",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "./helper/dataLoaderExtractionHelper": [
+    {
+      "id": "./src/server/helper/dataLoaderExtractionHelper.js",
+      "name": "./src/server/helper/dataLoaderExtractionHelper.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "./src/server/index.js": [
+    {
+      "id": "./src/server/index.js",
+      "name": "./src/server/index.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "./middlewareFactory": [
+    {
+      "id": "./src/server/redux/middlewareFactory.js",
+      "name": "./src/server/redux/middlewareFactory.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "./redux/storeFactory": [
+    {
+      "id": "./src/server/redux/storeFactory.js",
+      "name": "./src/server/redux/storeFactory.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "./response/responseFactory": [
+    {
+      "id": "./src/server/response/responseFactory.js",
+      "name": "./src/server/response/responseFactory.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "./../../../api/client": [
+    {
+      "id": "./src/shared/api/client.js",
+      "name": "./src/shared/api/client.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "../components/base/components/loading": [
+    {
+      "id": "./src/shared/components/base/components/loading/index.js",
+      "name": "./src/shared/components/base/components/loading/index.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "../components/base/components/notFound": [
+    {
+      "id": "./src/shared/components/base/components/notFound/index.js",
+      "name": "./src/shared/components/base/components/notFound/index.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "../components/base/components/posts": [
+    {
+      "id": "./src/shared/components/base/components/posts/index.js",
+      "name": "./src/shared/components/base/components/posts/index.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "../components/base/components/redirectHome/index": [
+    {
+      "id": "./src/shared/components/base/components/redirectHome/index.js",
+      "name": "./src/shared/components/base/components/redirectHome/index.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "../components/base": [
+    {
+      "id": "./src/shared/components/base/index.js",
+      "name": "./src/shared/components/base/index.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "../../model/factory/postFactory": [
+    {
+      "id": "./src/shared/model/factory/postFactory.js",
+      "name": "./src/shared/model/factory/postFactory.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "./actionFactory": [
+    {
+      "id": "./src/shared/redux/action/factory/actionFactory.js",
+      "name": "./src/shared/redux/action/factory/actionFactory.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "../../../../redux/action/factory/postActionFactory": [
+    {
+      "id": "./src/shared/redux/action/factory/postActionFactory.js",
+      "name": "./src/shared/redux/action/factory/postActionFactory.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "../action/type": [
+    {
+      "id": "./src/shared/redux/action/type.js",
+      "name": "./src/shared/redux/action/type.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "./reducer/postsReducer": [
+    {
+      "id": "./src/shared/redux/reducer/postsReducer.js",
+      "name": "./src/shared/redux/reducer/postsReducer.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "../../shared/redux/reducers": [
+    {
+      "id": "./src/shared/redux/reducers.js",
+      "name": "./src/shared/redux/reducers.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "../../shared/router/routes": [
+    {
+      "id": "./src/shared/router/routes.js",
+      "name": "./src/shared/router/routes.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "./urlGenerator": [
+    {
+      "id": "./src/shared/router/urlGenerator.js",
+      "name": "./src/shared/router/urlGenerator.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
+  "undefined": [
+    {
+      "id": "axios",
+      "name": "axios",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "babel-polyfill",
+      "name": "babel-polyfill",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "express",
+      "name": "express",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "react",
+      "name": "react",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "react-dom/server",
+      "name": "react-dom/server",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "react-helmet",
+      "name": "react-helmet",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "react-loadable",
+      "name": "react-loadable",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "react-loadable/webpack",
+      "name": "react-loadable/webpack",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "react-redux",
+      "name": "react-redux",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "react-router",
+      "name": "react-router",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "react-router-config",
+      "name": "react-router-config",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "react-router-dom",
+      "name": "react-router-dom",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "redux",
+      "name": "redux",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "redux-promise-middleware",
+      "name": "redux-promise-middleware",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "redux-thunk",
+      "name": "redux-thunk",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "serialize-javascript",
+      "name": "serialize-javascript",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    },
+    {
+      "id": "uuid",
+      "name": "uuid",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ]
+}

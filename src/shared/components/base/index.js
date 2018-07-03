@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { renderRoutes } from 'react-router-config';
 import { Link } from 'react-router-dom';
-import { createPostsPath, createHomePath } from '../../router/urlGenerator';
+import { createPostsPath, createHomePath, createContactPath } from '../../router/urlGenerator';
 import { Helmet } from 'react-helmet';
 
 type Props = {
@@ -15,6 +15,7 @@ type Props = {
 export default class Base extends Component<Props> {
 
     render() {
+
         return (
             <div>
                 <Helmet>
@@ -28,6 +29,9 @@ export default class Base extends Component<Props> {
                     </li>
                     <li>
                         <Link to={ createPostsPath() }>Posts</Link>
+                    </li>
+                    <li>
+                        <Link to={ createContactPath() }>Contact</Link>
                     </li>
                 </ul>
                 { renderRoutes(this.props.route.routes) }
