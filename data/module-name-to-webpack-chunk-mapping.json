@@ -63,6 +63,14 @@
       "publicPath": "bundle.js"
     }
   ],
+  "../components/base/components/home": [
+    {
+      "id": "./src/shared/components/base/components/home/index.js",
+      "name": "./src/shared/components/base/components/home/index.js",
+      "file": "bundle.js",
+      "publicPath": "bundle.js"
+    }
+  ],
   "../components/base/components/loading": [
     {
       "id": "./src/shared/components/base/components/loading/index.js",
